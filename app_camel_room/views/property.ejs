@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <!-- Title  -->
+    <title>낙타의 공방 - 매물</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="assets/img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="south-load"></div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="southNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="/">낙타의 공방</a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- close btn -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="/">홈</a></li>
+                                <li><a href="/about-us">팀-공집합</a></li>
+                                <li><a href="/property" style="color:rgb(153, 126, 100)">부동산</a></li>
+                                <li><a href="/theme">테마</a></li>
+                                <li><a href="/register">회원가입</a></li>
+                                <% if(!check_ses) {%>
+                                    <li><a href="" style=color:#b3b3b3 data-toggle="modal" data-target="#loginModal" id="login">로그인</a></li>
+                                    <%} else{ %>
+                                    <li><a href="/api/logout" style="color:#b3b3b3">로그아웃</a></li>
+                                    <%}%>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img" style="background-image: url(assets/img/bg-img/properties-bg.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h3 class="breadcumb-title">매물</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Advance Search Area Start ##### -->
+    <div class="south-search-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="advanced-search-form">
+                        <!-- Search Title -->
+                        <div class="search-title">
+                            <p>당신의 집을 찾으세요</p>
+                        </div>
+                        <!-- Search Form -->
+                        <form action="/search" method="post" id="advanceSearch">
+                            <div class="row">
+
+                                <div class="col-12 col-md-4 col-lg-12">
+                                    <div class="form-group">
+                                        <input type="input" class="form-control" name="title" placeholder="제목">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-4 col-lg-12">
+                                    <div class="form-group">
+                                        <input id="search" type="input" class="form-control" name="address" placeholder="주소 자동완성" autocomplete=off required>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-4 col-lg-3">
+                                    <div class="form-group">
+                                        <select class="form-control" id="cities" name="contractTag">
+                                            <option>계약 유형</option>
+                                            <option>전세</option>
+                                            <option>월세</option>
+                                            <option>매매</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-4 col-lg-3">
+                                    <div class="form-group">
+                                        <select class="form-control" id="catagories" name="catagories">
+                                            <option>주거 형태</option>
+                                            <option>아파트</option>
+                                            <option>주택</option>
+                                            <option>오피스텔</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-4 col-lg-3">
+                                    <div class="form-group">
+                                        <select class="form-control" id="floors" name="floors">
+                                            <option>층수</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7이상</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 col-md-4 col-lg-3">
+                                    <div class="form-group">
+                                            <select class="form-control" id="years" name="years">
+                                                    <option>건물연식</option>
+                                                    <option>5이하</option>
+                                                    <option>10이하</option>
+                                                    <option>15이하</option>
+                                            </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-4 col-xl-2">
+                                    <div class="form-group">
+                                        <select class="form-control" id="bathrooms" name="bathrooms">
+                                            <option>화장실</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5이상</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4 col-xl-2">
+                                    <div class="form-group">
+                                        <select class="form-control" id="bedrooms" name="bedrooms">
+                                            <option>방</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5이상</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4 col-xl-2">
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" name="min_size" placeholder="최소 평수">
+                                    </div>
+                                </div>
+                                -
+                                <div class="col-12 col-md-4 col-xl-2">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" name="max_size" placeholder="최대 평수">
+                                        </div>
+                                    </div>
+
+                                
+                                <div class="col-12 d-flex justify-content-between align-items-end">
+                            
+                                    <!-- Submit -->
+                                    <div class="form-group mb-0">
+                                        <button id="searchBtn" type="submit" class="btn south-btn">검색</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Advance Search Area End ##### -->
+
+
+    <!-- 지도 -->
+    <div class="map-list-container">
+        <div class="nav-map" id="map" ></div>
+        <div class="section-list" id="maplist">
+            <div class="single-container" >
+                <img id="estate_image" src="assets/img/bg-img/camel.jpg" class="rounded" alt="Cinque Terre">
+                
+                <button id='click_id' type="button" class="btn btn-primary btn-block" style="background-color:#000000; border-color:#000000;"><b>매물 보기</b></button>
+                <div class="single-property-content">
+                    <div class="single-property-text">        
+                            <h2 id="title">매물을 선택하세요</h2>
+                            <p class="text-secondary" id="roadAddress"></p>
+                            <!-- Nav pills -->
+                            <ul class="nav nav-pills" role="tablist">
+                              <li class="nav-item">
+                                <a class="nav-link active" data-toggle="pill" href="#home">집 정보</a>
+                              </li>
+                              
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                              <div id="home" class="container tab-pane active"><br>
+                                <p class="text-secondary" id="content"></p>
+                              </div>
+                              <div id="menu1" class="container tab-pane fade"><br>
+                                <h3>Menu 1</h3>
+                                <p></p>
+                              </div>
+                            </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    
+    <!-- 지도 끝 -->
+    
+    <!-- 매물 목록 -->
+    <section class="listings-content-wrapper section-padding-100">
+    
+    <!-- ##### Listing Content Wrapper Area Start ##### -->
+    
+        <div class="container">
+            <%if(search || check_ses){%>
+                <div class="row">
+                        <div class="col-12">
+                            <div class="section-heading wow fadeInUp">
+                                <%if(!search){%>
+                                <h2>추천 매물</h2>
+                                <p>이런 집은 어떠신가요?</p>
+                                <%}else{%>
+                                <h2>검색 매물</h2>
+                                <p>이런 집은 어떠신가요?</p>
+                                <%}%>
+                            </div>
+                        </div>
+                </div>
+            <div class="row">
+                <%for(var i = 0; i < recommend_list.length; i++){%>
+                <!-- Single Featured Property -->
+                <div class="col-12 col-md-6 col-xl-4"
+                    onclick="singleClick('<%=recommend_list[i].estate_id%>')">
+                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="600ms">
+                        <!-- Property Thumbnail -->
+                        <div class="property-thumb">
+                            <img src="uploads/<%=recommend_list[i].saveFileName[0]%>" alt="" style="width:100%; height:240px;">
+    
+                            <div class="tag">
+                                <span>For Sale</span>
+                            </div>
+                            <div class="list-price">
+                                <p><%=recommend_list[i].price%> 만원</p>
+                            </div>
+                        </div>
+                        <!-- Property Content -->
+                        <div class="property-content">
+                            <h5><%=recommend_list[i].title%></h5>
+    
+                            <p class="location"><img src="assets/img/icons/location.png"
+                                    alt=""><%=recommend_list[i].roadAddress%></p>
+                            <div class="property-meta-data d-flex align-items-end justify-content-between">
+                                <div class="bathroom">
+                                    <img src="assets/img/icons/bathtub.png" alt="">
+                                    <span><%=recommend_list[i].toilet%></span>
+                                </div>
+                                <div class="garage">
+                                    <img src="assets/img/icons/garage.png" alt="">
+                                    <span><%=recommend_list[i].contractTag%></span>
+                                </div>
+                                <div class="space">
+                                    <img src="assets/img/icons/space.png" alt="">
+                                    <span><%=recommend_list[i].roomSize%> sq ft</span>
+                                </div>
+                            </div>
+                            <p><br><%=recommend_list[i].content%></p>
+    
+                        </div>
+                    </div>
+                </div>
+                
+                <% } %>
+            </div>
+            <% }else if(check_ses==0 && search == 0) {%>
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading wow fadeInUp">
+                        <h2>지금 로그인하세요</h2>
+                        <p>당신에게 추천해주고 싶은 집이 있습니다</p>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    <!-- ##### Listing Content Wrapper Area End ##### -->
+    </section>
+    <!-- 매물 등록 버튼 -->
+    <%if(check_ses){%>
+    <div>
+        <button type="button" class="btn south-btn custom-btn" onclick="add_property()">매물 등록</button>
+    </div>
+    <% } %>
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area section-padding-100-0 bg-img gradient-background-overlay" style="background-image: url(assets/img/bg-img/cta.jpg);">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area mb-100">
+                            <!-- Widget Title -->
+                            <div class="widget-title">
+                                <h6>About Us</h6>
+                            </div>
+                            <p>공집합 팀의 졸업작품, <br>공민철, 박경민, 박소연 개발작품이다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area mb-100">
+                            <!-- Widget Title -->
+                            <div class="widget-title">
+                                <h6>Featured Properties</h6>
+                            </div>
+                            <!-- Featured Properties Slides -->
+                            <div class="featured-properties-slides owl-carousel">
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite Text -->
+        <div class="copywrite-text d-flex align-items-center justify-content-center">
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+    </footer>
+    
+    <!--LOGIN MODAL-->
+    <div class="modal" id="loginModal" tabindex=10 role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title w-100" id="modalLabel">Login</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <form method="POST" action="api/signin">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control"
+                                    placeholder="Camel@Camels.com" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control"
+                                                placeholder="PASSWORD" value="" required>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--LOGIN MODAL END-->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="assets/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="assets/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/classy-nav.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <!-- Active js -->
+    <script src="assets/js/active.js"></script>
+    <!-- 다음 지도 api -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c749c8a6c8049131a0f238101adf5004&libraries=services,clusterer"></script>
+    <!--구글 주소 api -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDo5kj9hCe7psH0BHSVK62kT3h9TcGS9qM&region=KR"></script>
+    <script src="assets/js/Chartbundle.js"></script>
+
+<script>
+
+    //매물 등록 버튼
+    function add_property() {
+        location.href = "/add-property";
+    }
+    //주소 검색 자동완성
+    var search = $("#search").get(0);
+    var options = {
+        componentRestrictions: { country: 'kor' },
+        type: ['(cities)'],
+        language: "ko"
+    };
+    var autocomplete = new google.maps.places.Autocomplete(search, options);
+    // 매물 목록 클릭 함수
+    function propertyInfo(num) {
+        location.href = "/single-property/"+num;
+    }
+    
+    var map = new daum.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
+        center : new daum.maps.LatLng(36.385003, 127.824772), // 지도의 중심좌표 
+        level : 12 // 지도의 확대 레벨 
+    });
+    // 마커 클러스터러를 생성합니다 
+    var clusterer = new daum.maps.MarkerClusterer({
+        map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
+        averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
+        minLevel: 4, // 클러스터 할 최소 지도 레벨 
+        disableClickZoom: true
+    });
+    
+    
+    // [jquery 통해서 지도데이터 GET]
+    
+    $.get("/get_data", function (data) {
+        var imageSrc = 'assets/img/icons/office-building-icon.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+        imageSize = new daum.maps.Size(27, 28),  // 마커 이미지의 크기
+        imgOptions =  {
+            offset: new daum.maps.Point(11, 28) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+        };
+        markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imgOptions);
+        var markers = $(data.positions).map(function(i, position) {
+            return new daum.maps.Marker({
+                content : position.estate_id,
+                position : new daum.maps.LatLng(position.lat, position.lng),
+                image :markerImage
+            });
+        });
+        // 지도 오른쪽 부분에 매물의 정보를 지정해주는 부분 
+        var estate_id = $(data.positions).map(function(i, id) {
+            var idx = i.toString();
+            daum.maps.event.addListener(markers[i], 'click', function () {
+                $('#click_id').click(function(){
+                    location.href="/single-property/"+id.estate_id;
+                });
+                $('#estate_image').attr('src', 'uploads/'+id.saveFileName);
+                $('#title').text(id.title);
+                $('#price').text(id.price);
+                $('#contractTag').text(id.contractTag);
+                $('#deposit').text("보증금 " + id.deposit + " 만원");
+                $('#roadAddress').text(id.roadAddress);
+                $('#houseType').text(id.houseType);
+                $('#contractTag').text(id.contractTag);
+                $('#roomSize').text(id.roomSize);
+                $('#rooms').text(id.rooms);
+                $('#toilet').text(id.toilet);
+                $('#years').text(id.years);
+                $('#content').text(id.content);
+                config.data.datasets[0].data[0] = id.safe_value;
+                config.data.datasets[0].data[1] = id.popular_value;
+                config.data.datasets[0].data[2] = id.traffic_value;
+                config.data.datasets[0].data[3] = id.education_value;
+                config.data.datasets[0].data[4] = id.healthy_value;
+                config.data.datasets[0].data[5] = id.convenience_value;
+            });
+
+        });
+        console.log(estate_id);
+        
+        // 클러스터러에 마커들을 추가합니다
+        clusterer.addMarkers(markers);
+    });
+    
+    daum.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
+        // 현재 지도 레벨에서 1레벨 확대한 레벨
+        var level = map.getLevel()-2;
+        // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
+        map.setLevel(level, {anchor: cluster.getCenter()});
+    });
+    function singleClick(id){
+        window.location.href='/single-property/'+id;
+    }
+    
+
+</script>
+</body>
+<style>
+    .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+    .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+    .map_wrap {position:relative;width:100%;height:500px;}
+    #menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+    .bg_white {background:#fff;}
+    #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+    #menu_wrap .option{text-align: center;}
+    #menu_wrap .option p {margin:10px 0;}  
+    #menu_wrap .option button {margin-left:5px;}
+  
+    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
+    #pagination {margin:10px auto;text-align: center;}
+    #pagination a {display:inline-block;margin-right:10px;}
+    #pagination .on {font-weight: bold; cursor: default;color:#777;}
+</style>
+</html>

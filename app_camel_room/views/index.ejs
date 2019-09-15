@@ -1,0 +1,442 @@
+<!--HOME PAGE-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>낙타의 공방 - HOME</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="assets/img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+    
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="south-load"></div>
+    </div>
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="southNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="/">낙타의 공방</a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- close btn -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="/" style="color:rgb(153, 126, 100)">홈</a></li>
+                                <li><a href="/about-us">팀-공집합</a></li>
+                                <li><a href="/property">부동산</a></li>
+                                <li><a href="/theme">테마</a></li>
+                                <li><a href="/register">회원가입</a></li>
+                                <% if(!check_ses) {%>
+                                    <li><a href="" style=color:#b3b3b3 data-toggle="modal" data-target="#loginModal" id="login">로그인</a></li>
+                                    <%} else{ %>
+                                    <li><a href="/api/logout" style="color:#b3b3b3">로그아웃</a></li>
+                                    <%}%>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area">
+        <div class="hero-slides owl-carousel">
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide bg-img" style="background-image: url(assets/img/bg-img/a.png);">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="hero-slides-content">
+                                <h2 data-animation="fadeInUp" data-delay="100ms">Find your home</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide bg-img" style="background-image: url(assets/img/bg-img/sample53.jpg);">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="hero-slides-content">
+                                <h2 data-animation="fadeInUp" data-delay="100ms">Find your dream house</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide bg-img" style="background-image: url(assets/img/bg-img/sample3.jpg);">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="hero-slides-content">
+                                <h2 data-animation="fadeInUp" data-delay="100ms">Find your perfect house</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Advance Search Area Start ##### -->
+    <div class="south-search-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="advanced-search-form">
+                            <!-- Search Title -->
+                            <div class="search-title">
+                                <p>당신의 집을 찾으세요</p>
+                            </div>
+                            <!-- Search Form -->
+                            <form action="/search" method="post" id="advanceSearch">
+                                <div class="row">
+    
+                                    <div class="col-12 col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <input type="input" class="form-control" name="title" placeholder="제목">
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-12 col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <input id="search" type="input" class="form-control" name="address" placeholder="주소 자동완성" autocomplete=off required>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-12 col-md-4 col-lg-3">
+                                        <div class="form-group">
+                                            <select class="form-control" id="cities" name="contractTag">
+                                                <option>계약 유형</option>
+                                                <option>전세</option>
+                                                <option>월세</option>
+                                                <option>매매</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-12 col-md-4 col-lg-3">
+                                        <div class="form-group">
+                                            <select class="form-control" id="catagories" name="catagories">
+                                                <option>주거 형태</option>
+                                                <option>아파트</option>
+                                                <option>주택</option>
+                                                <option>오피스텔</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-12 col-md-4 col-lg-3">
+                                        <div class="form-group">
+                                            <select class="form-control" id="floors" name="floors">
+                                                <option>층수</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7이상</option>
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12 col-md-4 col-lg-3">
+                                        <div class="form-group">
+                                                <select class="form-control" id="years" name="years">
+                                                        <option>건물연식</option>
+                                                        <option>5이하</option>
+                                                        <option>10이하</option>
+                                                        <option>15이하</option>
+                                                </select>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-12 col-md-4 col-xl-2">
+                                        <div class="form-group">
+                                            <select class="form-control" id="bathrooms" name="bathrooms">
+                                                <option>화장실</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5이상</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-12 col-md-4 col-xl-2">
+                                        <div class="form-group">
+                                            <select class="form-control" id="bedrooms" name="bedrooms">
+                                                <option>방</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5이상</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-12 col-md-4 col-xl-2">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" name="min_size" placeholder="최소 평수">
+                                        </div>
+                                    </div>
+                                    -
+                                    <div class="col-12 col-md-4 col-xl-2">
+                                            <div class="form-group">
+                                                <input type="number" class="form-control" name="max_size" placeholder="최대 평수">
+                                            </div>
+                                        </div>
+    
+                                    
+                                    <div class="col-12 d-flex justify-content-between align-items-end">
+                                
+                                        <!-- Submit -->
+                                        <div class="form-group mb-0">
+                                            <button id="searchBtn" type="submit" class="btn south-btn">검색</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- ##### Advance Search Area End ##### -->
+
+    <!-- ##### Featured Properties Area Start ##### -->
+    <section class="featured-properties-area section-padding-200-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading wow fadeInUp">
+                        <h2>TOP RATES PROPERTIES</h2>
+                        <p>많은 사람들이 조회한 부동산 매물입니다</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+    
+                <%for(var i = 0; i < estate_list.length; i++){%>
+                <!-- Single Featured Property -->
+                <div class="col-12 col-md-6 col-xl-4"
+                    onclick="singleClick('<%=estate_list[i].estate_id%>')">
+                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="600ms">
+                        <!-- Property Thumbnail -->
+                        <div class="property-thumb">
+                            <img src="uploads/<%=estate_list[i].saveFileName[0]%>" alt="" style="width:100%; height:240px;">
+    
+                            <div class="tag">
+                                <span>For Sale</span>
+                            </div>
+                            <div class="list-price">
+                                <p><%=estate_list[i].price%> 만원</p>
+                            </div>
+                        </div>
+                        <!-- Property Content -->
+                        <div class="property-content">
+                            <h5><%=estate_list[i].title%></h5>
+    
+                            <p class="location"><img src="assets/img/icons/location.png"
+                                    alt=""><%=estate_list[i].roadAddress%></p>
+                            <div class="property-meta-data d-flex align-items-end justify-content-between">
+                                <div class="bathroom">
+                                    <img src="assets/img/icons/bathtub.png" alt="">
+                                    <span><%=estate_list[i].toilet%></span>
+                                </div>
+                                <div class="garage">
+                                    <img src="assets/img/icons/garage.png" alt="">
+                                    <span><%=estate_list[i].contractTag%></span>
+                                </div>
+                                <div class="space">
+                                    <img src="assets/img/icons/space.png" alt="">
+                                    <span><%=estate_list[i].roomSize%> sq ft</span>
+                                </div>
+                            </div>
+                            <p><br><%=estate_list[i].content%></p>
+    
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+    
+            </div>
+    </section>
+    <!-- ##### Featured Properties Area End ##### -->
+
+    <!-- ##### Call To Action Area Start ##### -->
+    <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(assets/img/bg-img/hero5.jpg)">
+        <div class="container h-100">
+            <div class="row align-items-center h-100">
+                <div class="col-12">
+                    <div class="cta-content text-center">
+                        <h2 class="wow fadeInUp" data-wow-delay="300ms">테마별로 찾고싶습니까?</h2>
+                        <h6 class="wow fadeInUp" data-wow-delay="400ms">낙타의 공방에서는 테마 검색을 제공합니다.</h6>
+                        <a href="#" class="btn south-btn mt-50 wow fadeInUp" data-wow-delay="500ms" onclick="location.href='/theme'">테마 검색</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Call To Action Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area section-padding-100-0 bg-img gradient-background-overlay" style="background-image: url(assets/img/bg-img/cta.jpg);">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area mb-100">
+                            <!-- Widget Title -->
+                            <div class="widget-title">
+                                <h6>About Us</h6>
+                            </div>
+                            <p>공집합 팀의 졸업작품, <br>공민철, 박경민, 박소연 개발작품이다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area mb-100">
+                            <!-- Widget Title -->
+                            <div class="widget-title">
+                                <h6>Featured Properties</h6>
+                            </div>
+                            <!-- Featured Properties Slides -->
+                            <div class="featured-properties-slides owl-carousel">
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite Text -->
+        <div class="copywrite-text d-flex align-items-center justify-content-center">
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+    <!--LOGIN MODAL-->
+    <div class="modal" id="loginModal" tabindex=10 role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title w-100" id="modalLabel">Login</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <form method="POST" action="api/signin">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" name="email" class="form-control"
+                                        placeholder="Camel@Camels.com" value="" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password" class="form-control"
+                                                    placeholder="PASSWORD" value="" required>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--LOGIN MODAL END-->
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="assets/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="assets/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/classy-nav.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <!-- Active js -->
+    <script src="assets/js/active.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <!--구글 주소 api -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDo5kj9hCe7psH0BHSVK62kT3h9TcGS9qM&region=KR"></script>
+</body>
+<script>
+    //주소 검색 자동완성
+    var search = $("#search").get(0);
+    var options = {
+        componentRestrictions: { country: 'kor' },
+        type: ['(cities)'],
+        language: "ko"
+    };
+    var autocomplete = new google.maps.places.Autocomplete(search, options);
+    function singleClick(id){
+        window.location.href='/single-property/'+id;
+    }
+</script>
+</html>

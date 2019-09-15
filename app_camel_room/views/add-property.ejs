@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>낙타의 공방 - 매물 등록</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="assets/img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="south-load"></div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="southNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="/">낙타의 공방</a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- close btn -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="/">홈</a></li>
+                                <li><a href="/about-us">팀-공집합</a></li>
+                                <li><a href="/property">부동산</a></li>
+                                <li><a href="/theme">테마</a></li>
+                                <li><a href="/register">회원가입</a></li>
+                                <% if(!check_ses) {%>
+                                    <li><a href="" style=color:#b3b3b3 data-toggle="modal" data-target="#loginModal" id="login">로그인</a></li>
+                                    <%} else{ %>
+                                    <li><a href="/api/logout" style="color:#b3b3b3">로그아웃</a></li>
+                                    <%}%>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img" style="background-image: url(assets/img/bg-img/hero11.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h3 class="breadcumb-title">매물 등록</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <section class="south-contact-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-heading">
+                        <h4>매물 정보 입력</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Contact Form Area -->
+                <div class="col-12 col-lg-12">
+                    <div class="contact-form">
+                        <div class="form-group">
+                            <p><button type="button" class="btn btn-success" id="analysis" onclick="analysis()">사진 분석</button></p>
+                            <label><b>인테리어 분석</b><p>사진을 등록해주세요. 이 사진은 해당 매물의 인테리어가 어떤 것 인지 분석하여 알려줍니다!!</p></label><p></p>
+                            <input type="hidden" id="theme_check" value="">
+                        </div>
+                        <form action="api/estate" enctype="multipart/form-data" name="estate-form" method="post" id="estate-form" onsubmit="return checking()">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <div class="form-group">
+                                        <p><input type="file"  name="estateFile" class="btn btn-outline-success" id="input-file1" accept="image/*" multiple novalidate required></p>
+                                        <label><b>매물 등록 사진</b><p>사진을 등록해주세요. 이 사진은 사용자에게 보여지는 매물 사진입니다.</p></label>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <div class="form-group">
+                                        <label><b>제목</b></label>
+                                        <input type="text" class="form-control" placeholder="TITLE" value="충북대 1시간 거리" name="title">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label><b>주거 구분</b></label><br>
+                                        <div>
+                                            <select class="form-control" name="houseType">
+                                                <option>주택</option>
+                                                <option>아파트</option>
+                                                <option>오피스텔</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                            <label><b>구분</b></label><br>
+                                            <select class="form-control" name="contractTag">
+                                                <option>전세</option>
+                                                <option>월세</option>
+                                                <option>매매</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label><b>가격 (만원)</b></label>
+                                        <input type="number" class="form-control" placeholder="price" value="10000" name="price">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label><b>보증금 (만원)</b></label>
+                                        <input type="number" class="form-control" placeholder="price" value="100" name="deposit">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <div class="form-group">
+                                        <label><b>주소</b></label><br>
+                                            <input type="text" id="roadAddress" class="form-control" placeholder="Road Address" name="roadAddress"
+                                                readonly onclick="fn_setAddr()">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <label><b>상세주소</b></label><br>
+                                        <input type="text" name="detailAddress" class="form-control" placeholder="Detail Address" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label><b>평수</b></label>
+                                        <input type="number" class="form-control" placeholder="Size" name="roomSize" value=30>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label><b>방 개수</b></label><br>
+                                        <div>
+                                            <input type="number" class="form-control" placeholder="3" name="rooms" value=3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label><b>화장실</b></label><br>
+                                        <div>
+                                            <input type="number" class="form-control"  placeholder="2" name="toilet" value=2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label><b>층수</b></label><br>
+                                        <div>
+                                            <input type="number" class="form-control"  placeholder="10" name="floors" value=10>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label><b>건물연식</b></label><br>
+                                        <div>
+                                            <input type="number" class="form-control"  placeholder="5" name="years" value=5>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <input type="hidden" value="<%=check_ses %>" name="writer"/>
+                                    <input type="hidden" id="latitude" name="latitude"/>
+                                    <input type="hidden" id="longitude" name="longitude"/>
+                                    <input type="hidden" id="school" name="school"/>
+                                    <input type="hidden" id="kindergarten" name="kindergarten"/>
+                                    <input type="hidden" id="academy" name="academy"/>
+                                    <input type="hidden" id="subway" name="subway"/>
+                                    <input type="hidden" id="hospital" name="hospital"/>
+                                    <input type="hidden" id="pharmacy" name="pharmacy"/>
+                                    <input type="hidden" id="mart" name="mart"/>
+                                    <input type="hidden" id="convenience" name="convenience"/>
+                                    <input type="hidden" id="culture" name="culture"/>
+                                    <input type="hidden" id="cafe" name="cafe"/>
+                                    <input type="hidden" id="food" name="food"/>
+                                </div>
+                            
+                            </div>
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <div class="form-group">
+                                        <label><b>내용</b></label><br>
+                                        <textarea class="form-control" name="content" id="content" cols="30" rows="10" placeholder="소개글">
+신축1년차 새집증후군 없는 새집 귀한전세입니다.
+회사 이전으로 인한 급매물로 주변시세보다 저렴한 전세예요.
+전세자금 대출가능하며, 융자하나 없이 깔끔한 집입니다.
+                                                
+9층에 9층으로 넓은 옥상을 편하게 쓰실수 있고 바베큐파티도 하실수 있어요
+앞이 막히지 않아 9층 조망이 매우 뛰어나며 채광도 아주 좋은 예쁜집입니다.
+                                                
+직접  찍어온 실사진이며 짐이 있을때 없을때 
+비교하시도록 두가지로 올렸습니다.
+                                                
+신혼부부 살기에 매우 적합하며 가산디지털단지역 독산역 도보이용
+구로디지털단지역은 바로앞 마을버스로 10분 이내입니다.
+주변에 빅마켓 홈플러스 영화관 시티렉스 w몰 마리오아울렛을 
+모두 도보로 이용하실수 있습니다. 
+                                                
+지상 지하주차장이 나눠져있어 주차 스트레스없는 아파트같은 
+40세대의 빌라입니다. 
+거실과 안방에 최신형 투인원 에어컨 옵션 있어요
+                                        </textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="submit_estate" type="submit" class="btn south-btn">등록 완료</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="map" style="width:280px;height:280px; visibility: hidden"></div>
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area section-padding-100-0 bg-img gradient-background-overlay" style="background-image: url(assets/img/bg-img/cta.jpg);">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area mb-100">
+                            <!-- Widget Title -->
+                            <div class="widget-title">
+                                <h6>About Us</h6>
+                            </div>
+                            <p>공집합 팀의 졸업작품, <br>공민철, 박경민, 박소연 개발작품이다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area mb-100">
+                            <!-- Widget Title -->
+                            <div class="widget-title">
+                                <h6>Featured Properties</h6>
+                            </div>
+                            <!-- Featured Properties Slides -->
+                            <div class="featured-properties-slides owl-carousel">
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite Text -->
+        <div class="copywrite-text d-flex align-items-center justify-content-center">
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="assets/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="assets/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/classy-nav.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <!-- Active js -->
+    <script src="assets/js/active.js"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c749c8a6c8049131a0f238101adf5004&libraries=services"></script>
+    <script>
+
+    //테마 체크
+    function analysis(){
+        window.open('http://ec2-15-164-57-59.ap-northeast-2.compute.amazonaws.com:5000/upload', 'analysis','width=400, height=300');
+        document.getElementById('theme_check').value = "ok";
+    }
+    function checking(){
+        if($("#theme_check").val() != "ok"){
+            $("#theme_check").focus();
+            alert("사진 분석을 하세요");
+            return false;
+        }
+        return true;
+    }
+
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+
+    mapOption = {
+        center: new daum.maps.LatLng(37.6163101099831, 127.030400470686), // 지도의 중심좌표
+        level: 4 // 지도의 확대 레벨
+    };    
+    var map = new daum.maps.Map(mapContainer, mapOption);
+    function fn_setAddr(){
+        //팝업 창 크기
+        var width = 500;
+        var height = 600;
+        daum.postcode.load(function(){
+        
+            new daum.Postcode({
+                oncomplete: function(data){
+                    document.getElementById('roadAddress').value = data.address;
+					var geocoder = new daum.maps.services.Geocoder();
+					geocoder.addressSearch(data.address, function(result, status) {
+
+						// 정상적으로 검색이 완료됐으면 
+						if (status === daum.maps.services.Status.OK) {
+							document.getElementById('latitude').value = result[0].y;
+                            document.getElementById('longitude').value = result[0].x;
+                            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                            mapOption = {
+                                center: new daum.maps.LatLng(result[0].y, result[0].x), // 지도의 중심좌표
+                                level: 4 // 지도의 확대 레벨
+                            };    
+                            var map = new daum.maps.Map(mapContainer, mapOption);
+                            var ps = new daum.maps.services.Places(map); 
+
+                            // 교육테마
+                            // 학교 검색
+                            ps.categorySearch('SC4', placesSearchCB1, {useMapBounds:true}); 
+                            function placesSearchCB1 (data, status, pagination) {
+                                
+                                //alert(data.length);
+                                document.getElementById('school').value = data.length;
+                                console.log("학교:"+data.length)
+                            }
+                            // 어린이집,유치원 검색
+                            ps.categorySearch('PS3', placesSearchCB2, {useMapBounds:true}); 
+                            function placesSearchCB2 (data, status, pagination) {
+                                document.getElementById('kindergarten').value = data.length;
+                                console.log("유치원:"+data.length);
+                                //alert(data.length);        
+                            }
+                            // 학원검색
+                            ps.categorySearch('AC5', placesSearchCB3, {useMapBounds:true}); 
+                            function placesSearchCB3 (data, status, pagination) {
+                                document.getElementById('academy').value = data.length;
+                                console.log("학원:"+data.length)
+                                //alert(data.length);        
+                            }
+
+                            // 교통테마
+                            // 지하철 검색
+                            ps.categorySearch('SW8', placesSearchCB4, {useMapBounds:true}); 
+                            function placesSearchCB4 (data, status, pagination) {
+                                document.getElementById('subway').value = data.length;
+                                console.log("지하철:"+data.length)
+                               //alert(data.length);        
+                            }
+                            // 지하철 검색
+
+                            // 건강테마
+                            // 병원 검색
+                            ps.categorySearch('HP8', placesSearchCB6, {useMapBounds:true}); 
+                            function placesSearchCB6 (data, status, pagination) {
+                                document.getElementById('hospital').value = data.length;
+                                console.log("병원:"+data.length)
+                                //alert(data.length);        
+                            }
+                            // 약국 검색
+                            ps.categorySearch('PM9', placesSearchCB7, {useMapBounds:true}); 
+                            function placesSearchCB7 (data, status, pagination) {
+                                document.getElementById('pharmacy').value = data.length;
+                                console.log("약국:"+data.length)
+                                //alert(data.length);        
+                            }
+
+                            // 편의 테마
+                            // 대형마트 검색
+                            ps.categorySearch('MT1', placesSearchCB8, {useMapBounds:true}); 
+                            function placesSearchCB8 (data, status, pagination) {
+                                document.getElementById('mart').value = data.length;
+                                console.log("마트:"+data.length)
+                                //alert(data.length);        
+                            }
+                            // 편의점 검색
+                            ps.categorySearch('CS2', placesSearchCB9, {useMapBounds:true}); 
+                            function placesSearchCB9 (data, status, pagination) {
+                                
+                                document.getElementById('convenience').value = data.length;
+                                console.log("편의시설:"+data.length)
+                               // alert(data.length);        
+                            }
+                            // 문화시설 검색
+                            ps.categorySearch('CT1', placesSearchCB10, {useMapBounds:true}); 
+                            function placesSearchCB10 (data, status, pagination) {
+                                document.getElementById('culture').value = data.length;
+                                console.log("문화시설:"+data.length)
+                                //alert(data.length);        
+                            }
+                            // 카페 검색
+                            ps.categorySearch('CE7', placesSearchCB11, {useMapBounds:true}); 
+                            function placesSearchCB11 (data, status, pagination) {
+                                document.getElementById('cafe').value = data.length;
+                                console.log("카페:"+data.length)
+                                //alert(data.length);        
+                            }
+                            // 음식점 검색
+                            ps.categorySearch('FD6', placesSearchCB12, {useMapBounds:true}); 
+                            function placesSearchCB12 (data, status, pagination) {
+                                document.getElementById('food').value = data.length;
+                                console.log("음식:"+data.length)
+                                alert('aa');
+                                //alert(data.length);        
+                            }
+                        }
+                        else{
+                                document.getElementById('latitude').value = 0;
+                                document.getElementById('longitude').value = 0;
+                        } 
+                    });
+                        
+                }
+                }).open({
+                    left: (window.screen.width / 2) - (width/2),
+                    top: (window.screen.height / 2) - (height / 2)
+                });
+            });
+    }
+    </script>
+</body>
+
+</html>

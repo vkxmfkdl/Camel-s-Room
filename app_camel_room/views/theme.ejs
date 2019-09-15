@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>낙타의 공방 - 테마</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="assets/img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="south-load"></div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="southNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="/">낙타의 공방</a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- close btn -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="/">홈</a></li>
+                                <li><a href="/about-us">팀-공집합</a></li>
+                                <li><a href="/property" >부동산</a></li>
+                                <li><a href="/theme" style="color:rgb(153, 126, 100)">테마</a></li>
+                                <li><a href="/register">회원가입</a></li>
+                                <% if(!check_ses) {%>
+                                    <li><a href="" style=color:#b3b3b3 data-toggle="modal" data-target="#loginModal" id="login">로그인</a></li>
+                                    <%} else{ %>
+                                    <li><a href="/api/logout" style="color:#b3b3b3">로그아웃</a></li>
+                                    <%}%>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img" style="background-image: url(assets/img/bg-img/properties-bg.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h3 class="breadcumb-title">테마</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcumb Area End ##### -->
+    <section class="south-contact-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-6" style="padding:20px; background-color:#fafafa">
+                    <div class="south-tabs-content">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" style="width:20%; text-align:center;" >
+                                <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab"
+                                    aria-controls="tab1" aria-selected="true">치안</a>
+                            </li>
+                            <li class="nav-item" style="width:20%; text-align:center;" >
+                                <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab"
+                                    aria-controls="tab2" aria-selected="false">교통</a>
+                            </li>
+                            <li class="nav-item" style="width:20%; text-align:center;">
+                                <a class="nav-link" id="tab--3" data-toggle="tab" href="#tab3" role="tab"
+                                    aria-controls="tab3" aria-selected="false">편의</a>
+                            </li>
+                            <li class="nav-item" style="width:20%; text-align:center;">
+                                <a class="nav-link" id="tab--4" data-toggle="tab" href="#tab4" role="tab"
+                                    aria-controls="tab4" aria-selected="false">건강</a>
+                            </li>
+                            <li class="nav-item" style="width:20%; text-align:center;">
+                                <a class="nav-link" id="tab--5" data-toggle="tab" href="#tab5" role="tab"
+                                    aria-controls="tab5" aria-selected="false">교육</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content mb-100" id="myTabContent" >
+                            <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab--1">
+                                <div class="south-tab-content">
+                                        
+                                    <!-- Tab Text -->
+                                    <div class="south-tab-text">
+                                            <img src="assets/img/blog-img/police.jpg" alt="" style="margin-bottom:20px;" >
+                                        <h6>치안</h6>
+                                        <p>경찰서, CCTV가 많은 곳을 알려드립니다</p>
+                                        <div class="search-widget-area south-search-form">
+                                            <form action="/get_data2" method="post">
+                                                <input type="search" name="searchAddress" id="search" placeholder="주소를 입력하세요">
+                                                <button type="submit"><i class="fa fa-search"
+                                                        aria-hidden="true"></i></button>
+                                                <input type="hidden" name="search_num" value=2 />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab--2">
+                                <div class="south-tab-content">
+                                    <!-- Tab Text -->
+                                    <div class="south-tab-text">
+                                            <img src="assets/img/blog-img/transfer.jpg" alt="" style="margin-bottom:20px;" >
+                                        <h6>교통</h6>
+                                        <p>버스정류소, 지하철역이 많은 곳을 알려드립니다.</p>
+                                        <div class="search-widget-area south-search-form">
+                                            <form action="/get_data2" method="post">
+                                                <input type="search" name="searchAddress" id="search" placeholder="주소를 입력하세요">
+                                                <button type="submit"><i class="fa fa-search"
+                                                        aria-hidden="true"></i></button>
+                                                <input type="hidden" name="search_num" value=3 />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab--3">
+                                <div class="south-tab-content">
+                                    <!-- Tab Text -->
+                                    <div class="south-tab-text">
+                                            <img src="assets/img/blog-img/convenience.jpg" alt="" style="margin-bottom:20px;" >
+                                        <h6>편의</h6>
+                                        <p>편의점, 마트 등의 편의 시설이 많은 곳을 알려드립니다.</p>
+                                        <div class="search-widget-area south-search-form">
+                                            <form action="/get_data2" method="post">
+                                                <input type="search" name="searchAddress" id="search" placeholder="주소를 입력하세요">
+                                                <button type="submit"><i class="fa fa-search"
+                                                        aria-hidden="true"></i></button>
+                                                <input type="hidden" name="search_num" value=4 />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab--4">
+                                <div class="south-tab-content">
+                                    <!-- Tab Text -->
+                                    <div class="south-tab-text">
+                                            <img src="assets/img/blog-img/health.jpg" alt="" style="margin-bottom:20px;"/>
+                                        <h6>건강</h6>
+                                        <p>병원, 약국 등 시설이 많은 곳을 알려드립니다.</p>
+                                        <div class="search-widget-area south-search-form">
+                                            <form action="/get_data2" method="post">
+                                                <input type="search" name="searchAddress" id="search" placeholder="주소를 입력하세요">
+                                                <button type="submit"><i class="fa fa-search"
+                                                        aria-hidden="true"></i></button>
+                                                <input type="hidden" name="search_num" value=5 />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab5" role="tabpanel" aria-labelledby="tab--5">
+                                <div class="south-tab-content">
+                                    <!-- Tab Text -->
+                                    <div class="south-tab-text">
+                                            <img src="assets/img/blog-img/education.jpg" alt="" style="margin-bottom:20px;">
+                                        <h6>교육</h6>
+                                        <p>초등학교, 중학교, 고등학교 근처로 알려드립니다.</p>
+                                        <div class="search-widget-area south-search-form">
+                                            <form action="/get_data2" method="post">
+                                                <input type="search" name="searchAddress" id="search" placeholder="주소를 입력하세요">
+                                                <button type="submit"><i class="fa fa-search"
+                                                        aria-hidden="true"></i></button>
+                                                <input type="hidden" name="search_num" value=6 />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                    <!-- ##### Accordians ##### -->
+                    <div class="col-12 col-lg-6">
+                        <div class="accordions mb-100" id="accordion" role="tablist" aria-multiselectable="true">
+                            <!-- single accordian area -->
+                            <div class="panel single-accordion">
+                                <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne"
+                                        data-toggle="collapse" data-parent="#accordion" href="#collapseOne">모던 인테리어
+                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                    </a></h6>
+                                <div id="collapseOne" class="accordion-content collapse show">
+                                    <img src="assets/img/blog-img/modern.jpg">
+                                    <p>모던 인테리어는 밝은 색을 가지는 집으로 Blah Blah 합니다.
+                                        <br>모던 인테리어의 매물을 찾는다면 주소를 입력하고 검색해주세요</p>
+                                    <div class="search-widget-area south-search-form">
+                                        <form action="/get_data2" method="post">
+                                            <input type="search" name="searchAddress" id="search" placeholder="주소를 입력하세요">
+                                            <button type="submit"><i class="fa fa-search"
+                                                    aria-hidden="true"></i></button>
+                                            <input type="hidden" name="search_num" value=7 />
+                                        </form>
+                                        </div>
+                                </div>
+                            </div>
+                            <!-- single accordian area -->
+                            <div class="panel single-accordion">
+                                <h6>
+                                    <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo"
+                                        data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">클래식 인테리어
+                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                    </a>
+                                </h6>
+                                <div id="collapseTwo" class="accordion-content collapse">
+                                        <img src="assets/img/blog-img/classic.jpg">
+                                        <p>클래식 인테리어는 밝은 색을 가지는 집으로 Blah Blah 합니다.
+                                                <br>클래식 인테리어의 매물을 찾는다면 주소를 입력하고 검색해주세요</p>
+                                    <div class="search-widget-area south-search-form">
+                                        <form action="/get_data2" method="post">
+                                            <input type="search" name="searchAddress" id="search" placeholder="주소를 입력하세요">
+                                            <button type="submit"><i class="fa fa-search"
+                                                    aria-hidden="true"></i></button>
+                                            <input type="hidden" name="search_num" value=8 />
+                                        </form>
+                                        </div>
+                                </div>
+                            </div>
+                            <!-- single accordian area -->
+                            <div class="panel single-accordion">
+                                <h6>
+                                    <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed"
+                                        data-parent="#accordion" data-toggle="collapse" href="#collapseThree">네츄럴 인테리어
+                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                    </a>
+                                </h6>
+                                <div id="collapseThree" class="accordion-content collapse">
+                                        <img src="assets/img/blog-img/natural.jpg">
+                                        <p>네츄럴 인테리어는 밝은 색을 가지는 집으로 Blah Blah 합니다.
+                                                <br>네츄럴 인테리어의 매물을 찾는다면 주소를 입력하고 검색해주세요</p>
+                                        <div class="search-widget-area south-search-form">
+                                            <form action="/get_data2" method="post">
+                                                <input type="search" name="searchAddress" id="search" placeholder="주소를 입력하세요">
+                                                <button type="submit"><i class="fa fa-search"
+                                                        aria-hidden="true"></i></button>
+                                                <input type="hidden" name="search_num" value=9 />
+                                            </form>
+                                            </div>
+                                </div>
+                            </div>
+                            <!-- single accordian area -->
+                            <div class="panel single-accordion">
+                                    <h6>
+                                        <a role="button" aria-expanded="true" aria-controls="collapseFour" class="collapsed"
+                                            data-parent="#accordion" data-toggle="collapse" href="#collapseFour">유럽 인테리어
+                                            <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                            <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                        </a>
+                                    </h6>
+                                    <div id="collapseFour" class="accordion-content collapse">
+                                            <img src="assets/img/blog-img/europe.jpg" alt="">
+                                            <p>유럽 인테리어는 밝은 색을 가지는 집으로 Blah Blah 합니다.
+                                                    <br>유럽 인테리어의 매물을 찾는다면 주소를 입력하고 검색해주세요</p>
+                                            <div class="search-widget-area south-search-form">
+                                                <form action="/get_data2" method="post">
+                                                    <input type="search" name="searchAddress" id="search" placeholder="주소를 입력하세요">
+                                                    <button type="submit"><i class="fa fa-search"
+                                                            aria-hidden="true"></i></button>
+                                                    <input type="hidden" name="search_num" value=10 />
+                                                </form>
+                                                </div>
+                                    </div>
+                                </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area section-padding-100-0 bg-img gradient-background-overlay" style="background-image: url(assets/img/bg-img/cta.jpg);">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area mb-100">
+                            <!-- Widget Title -->
+                            <div class="widget-title">
+                                <h6>About Us</h6>
+                            </div>
+                            <p>공집합 팀의 졸업작품, <br>공민철, 박경민, 박소연 개발작품이다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area mb-100">
+                            <!-- Widget Title -->
+                            <div class="widget-title">
+                                <h6>Featured Properties</h6>
+                            </div>
+                            <!-- Featured Properties Slides -->
+                            <div class="featured-properties-slides owl-carousel">
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite Text -->
+        <div class="copywrite-text d-flex align-items-center justify-content-center">
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+    </footer>
+    <!--LOGIN MODAL-->
+    <div class="modal" id="loginModal" tabindex=10 role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title w-100" id="modalLabel">Login</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <form method="POST" action="api/signin">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control"
+                                    placeholder="Camel@Camels.com" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control"
+                                                placeholder="PASSWORD" value="" required>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--LOGIN MODAL END-->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="assets/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="assets/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/classy-nav.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <!-- Active js -->
+    <script src="assets/js/active.js"></script>
+    <!-- 다음 지도 api -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c749c8a6c8049131a0f238101adf5004&libraries=services&libraries=services"></script>
+    <!--구글 주소 api -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDo5kj9hCe7psH0BHSVK62kT3h9TcGS9qM&region=KR"></script>
+    
+</body>
+
+</html>

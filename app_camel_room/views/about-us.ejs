@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>낙타의 공방 - 팀-공집합</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="assets/img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="south-load"></div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="southNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="/">낙타의 공방</a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- close btn -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="/">홈</a></li>
+                                <li><a href="/about-us" style="color:rgb(153, 126, 100)">팀-공집합</a></li>
+                                <li><a href="/property">부동산</a></li>
+                                <li><a href="/theme">테마</a></li>
+                                <li><a href="/register">회원가입</a></li>
+                                <% if(!check_ses) {%>
+                                <li><a href="" style=color:#b3b3b3 data-toggle="modal" data-target="#loginModal" id="login">로그인</a></li>
+                                <%} else{ %>
+                                <li><a href="/api/logout" style="color:#b3b3b3">로그아웃</a></li>
+                                <%}%>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img" style="background-image: url(assets/img/bg-img/camel-wallpaper.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h3 class="breadcumb-title">팀-공집합</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### About Content Wrapper Start ##### -->
+    <section class="about-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="section-heading text-left wow fadeInUp" data-wow-delay="250ms">
+                        <h2>당신의 완벽한 집을 찾으십시오</h2>
+                        <p>낙타의 공방은 당신에게 알맞는 집을 제공해드립니다.</p>
+                    </div>
+                    <div class="about-content">
+                        <img class="wow fadeInUp" data-wow-delay="350ms" src="assets/img/bg-img/about.jpg" alt="">
+                        <p class="wow fadeInUp" data-wow-delay="450ms"><p>사막의 오아시스같이 당신을 살게해줄 집을 제공해줍니다.</p>
+                        <p>낙타의 공방은 사용자에게 매물 추천, 매물 검색, 테마 검색, 인테리어 추천기능을 제공합니다.</p>
+                        <p>위 홈페이지는 충북대학교 공민철, 박경민, 박소연학생들이 졸업작품으로 만든 홈페이지입니다.</p>
+                        <p>서버사이드로는 Node.js, DB로는 Mongodb 그리고 기계학습을 위해 Tensorflow, Anaconda를 사용하였습니다.</p></p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <div class="section-heading text-left wow fadeInUp" data-wow-delay="250ms">
+                        <h2>개발 환경</h2>
+                        <p>부동산 추천 웹 개발 환경 입니다.</p>
+                    </div>
+                
+                    <div class="featured-properties-slides owl-carousel wow fadeInUp" data-wow-delay="350ms">
+                
+                        <!-- Single Slide -->
+                        <div class="single-featured-property">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img src="assets/img/bg-img/nodejs.jpg" alt="">
+                
+                                <div class="tag">
+                                    <span>Server</span>
+                                </div>
+                                <div class="list-price">
+                                    <p>Node.js</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5>Node.js</h5>
+                                <p class="location"><img src="assets/img/icons/location.png" alt="">Microsoft, Ryan Lienhart Dahl</p>
+                                <p>Node.js를 사용하여 홈페이지 서버 구축을하였습니다.</p>
+                
+                            </div>
+                        </div>
+                
+                        <!-- Single Slide -->
+                        <div class="single-featured-property">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img src="assets/img/bg-img/mongodb.jpg" alt="">
+                
+                                <div class="tag">
+                                    <span>Database</span>
+                                </div>
+                                <div class="list-price">
+                                    <p>MongoDB</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5>MongoDB</h5>
+                                <p class="location"><img src="assets/img/icons/location.png" alt="">MongoDB Inc.</p>
+                                <p>NoSQL 데이터베이스인 Mongdb를 홈페이지 구축을 위해 사용하였습니다.</p>
+                            </div>
+                        </div>
+                
+                        <!-- Single Slide -->
+                        <div class="single-featured-property">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img src="assets/img/bg-img/tensorflow.jpg" alt="">
+                
+                                <div class="tag">
+                                    <span>Machine learning</span>
+                                </div>
+                                <div class="list-price">
+                                    <p>Tensorflow</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5>기계학습 라이브러리</h5>
+                                <p class="location"><img src="assets/img/icons/location.png" alt="">Google, Apache</p>
+                                <p>인테리어 학습 및 분류를 위해 Tensorflow를 사용하였습니다.</p>
+                
+                            </div>
+                        </div>
+                        <!-- Single Slide -->
+                        <div class="single-featured-property">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img src="assets/img/bg-img/aws.png" alt="">
+                
+                                <div class="tag">
+                                    <span>EC2</span>
+                                </div>
+                                <div class="list-price">
+                                    <p>AWS</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5>AWS</h5>
+                                <p class="location"><img src="assets/img/icons/location.png" alt="">Amazon</p>
+                                <p>FLASK를 가동시키기 위한 외부 서버를 사용했습니다.</p>
+                
+                            </div>
+                        </div>
+                        <!-- Single Slide -->
+                        <div class="single-featured-property">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img src="assets/img/bg-img/mysql.jpg" alt="">
+                
+                                <div class="tag">
+                                    <span>Database</span>
+                                </div>
+                                <div class="list-price">
+                                    <p>MYSQL</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5>MYSQL</h5>
+                                <p class="location"><img src="assets/img/icons/location.png" alt="">Oracle</p>
+                                <p>분석된 테마가 mysql 데이터 베이스에 저장됩니다.</p>
+                
+                            </div>
+                        </div>
+                        <div class="single-featured-property">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img src="assets/img/bg-img/flask.png" alt="">
+                        
+                                <div class="tag">
+                                    <span>Server</span>
+                                </div>
+                                <div class="list-price">
+                                    <p>Flask</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5>Flask</h5>
+                                <p class="location"><img src="assets/img/icons/location.png" alt="">Oracle</p>
+                                <p>이미지를 분석하는 서버입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"> 
+        <div class="row">
+            <!-- ##### Milestones ##### -->
+            <div class="col-12">
+                <div class="elements-title">
+                    <h2>Milestone</h2>
+                </div>
+            </div>
+        
+            <!-- Single Cool Fact -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-cool-fact-area mb-100">
+                    <img src="img/icons/prize2.png" alt="">
+                    <h2><span class="counter">30</span></h2>
+                    <h6>개발 기간</h6>
+                </div>
+            </div>
+            <!-- Single Cool Fact -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-cool-fact-area mb-100">
+                    <img src="img/icons/new2.png" alt="">
+                    <h2><span class="counter"><%=estate_cnt%></span></h2>
+                    <h6>매물 개수</h6>
+                </div>
+            </div>
+            <!-- Single Cool Fact -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-cool-fact-area mb-100">
+                    <img src="img/icons/house2.png" alt="">
+                    <h2><span class="counter"><%=user_cnt%></span></h2>
+                    <h6>회원 수</h6>
+                </div>
+            </div>
+            <!-- Single Cool Fact -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-cool-fact-area mb-100">
+                    <img src="img/icons/house1.png" alt="">
+                    <h2><span class="counter">200000</span></h2>
+                    <h6>가치지수 Data</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ##### About Content Wrapper End ##### -->
+
+    <!-- ##### Meet The Team Area Start ##### -->
+    <section class="meet-the-team-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h2>Meet The Team</h2>
+                        <p>충북대학교 소프트웨어학과</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="250ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img src="assets/img/bg-img/team1.jpg" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="assets/img/icons/prize.png" alt="">
+                                <h2>공민철</h2>
+                                <p>부트스트랩 파괴자</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="assets/img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
+                                <h6><img src="assets/img/icons/envelope.png" alt=""> office@template.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img src="assets/img/bg-img/team2.jpg" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="assets/img/icons/prize.png" alt="">
+                                <h2>박소연</h2>
+                                <p>딥러닝 인간</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="assets/img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
+                                <h6><img src="assets/img/icons/envelope.png" alt=""> office@template.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="750ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img src="assets/img/bg-img/team3.jpg" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="assets/img/icons/prize.png" alt="">
+                                <h2>박경민</h2>
+                                <p>데이터 수집가</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="assets/img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
+                                <h6><img src="assets/img/icons/envelope.png" alt=""> office@template.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Meet The Team Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area section-padding-100-0 bg-img gradient-background-overlay" style="background-image: url(assets/img/bg-img/cta.jpg);">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area mb-100">
+                            <!-- Widget Title -->
+                            <div class="widget-title">
+                                <h6>About Us</h6>
+                            </div>
+                            <p>공집합 팀의 졸업작품, <br>공민철, 박경민, 박소연 개발작품이다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="footer-widget-area mb-100">
+                            <!-- Widget Title -->
+                            <div class="widget-title">
+                                <h6>Featured Properties</h6>
+                            </div>
+                            <!-- Featured Properties Slides -->
+                            <div class="featured-properties-slides owl-carousel">
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                                <!-- Single Slide -->
+                                <div class="single-featured-properties-slide">
+                                    <a href="#"><img src="assets/img/bg-img/fea-product.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite Text -->
+        <div class="copywrite-text d-flex align-items-center justify-content-center">
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+    <!--LOGIN MODAL-->
+    <div class="modal" id="loginModal" tabindex=10 role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title w-100" id="modalLabel">Login</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <form method="POST" action="api/signin">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control"
+                                    placeholder="Camel@Camels.com" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control"
+                                                placeholder="PASSWORD" value="" required>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--LOGIN MODAL END-->
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="assets/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="assets/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/classy-nav.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <!-- Active js -->
+    <script src="assets/js/active.js"></script>
+
+</body>
+
+</html>
