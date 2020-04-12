@@ -15,8 +15,18 @@
 <b>실행화면 1) 메인페이지 </b>
 <img src="https://user-images.githubusercontent.com/37204852/79061735-efb55600-7ccd-11ea-872d-9f59f4f72475.png">
 
-<b>실행화면 2) 화재 감지 시 알림</b>
-<img src="https://user-images.githubusercontent.com/37204852/78981312-9ed12080-7b5a-11ea-9d35-3ad8531701ef.png">
+<b>실행화면 2) 매물 클러스터링</b>
+<img src="https://user-images.githubusercontent.com/37204852/79061747-20958b00-7cce-11ea-89d0-fec0f57c0589.png">
+
+<b>실행화면 3) 추천매물</b>
+<img src="https://user-images.githubusercontent.com/37204852/79061754-360ab500-7cce-11ea-9d39-9ff94c43598d.png">
+
+<b>실행화면 4) 가치지수</b>
+<img src="https://user-images.githubusercontent.com/37204852/79061778-6b170780-7cce-11ea-9d66-f007f238f7a1.png">
+
+<b>실행화면 5) 테마검색</b>
+<img src="https://user-images.githubusercontent.com/37204852/79061792-8550e580-7cce-11ea-8a51-8b2d2fd2d572.png">
+
 
 # 실행방법
 
